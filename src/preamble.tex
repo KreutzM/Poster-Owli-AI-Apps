@@ -1,0 +1,33 @@
+% Basic LaTeX setup for a DIN A0 poster.
+% Compile with pdflatex/lualatex through latexmk. The template intentionally
+% avoids external assets, so it builds immediately after checkout.
+
+\usepackage[size=a0,orientation=portrait,scale=1.0]{beamerposter}
+\usetheme{default}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman,english]{babel}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\usepackage{caption}
+\usepackage{microtype}
+
+\graphicspath{{assets/logos/}{assets/figures/}{assets/qr/}}
+
+\captionsetup{
+  font=large,
+  labelfont=bf,
+  justification=raggedright,
+  singlelinecheck=false
+}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{navigation symbols}{}

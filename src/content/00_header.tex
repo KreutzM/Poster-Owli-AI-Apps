@@ -1,0 +1,34 @@
+% Header: THM logo left, title block center, ITI or BLiZ logo right.
+% Configure logo paths and the right-logo switch in src/poster-config.tex.
+\begin{tcolorbox}[
+  enhanced,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  left=0pt,right=0pt,top=0pt,bottom=0pt
+]
+\begin{minipage}[c]{0.17\linewidth}
+  \raggedright\PosterLogo[height=32mm]{\PosterLogoLeft}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.62\linewidth}
+  \centering
+  {\Huge\bfseries\color{PosterInk}\PosterTitle\par}
+  \vspace{4mm}
+  {\LARGE\color{PosterPrimary}\PosterSubtitle\par}
+  \vspace{3mm}
+  {\Large\PosterAuthors\par}
+  \vspace{1mm}
+  {\large\color{PosterMuted}\PosterAffiliations\par}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.17\linewidth}
+  \raggedleft
+  \ifPosterUseBlizLogo
+    \PosterLogo[height=32mm]{\PosterLogoRightBliz}
+  \else
+    \PosterLogo[height=32mm]{\PosterLogoRightIti}
+  \fi
+\end{minipage}
+\PosterRule
+\end{tcolorbox}

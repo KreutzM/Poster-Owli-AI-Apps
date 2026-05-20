@@ -1,0 +1,9 @@
+% Full-width footer bar for QR code, contact, project, funding, DOI, or license.
+% Configure content, colors, and height in src/poster-config.tex.
+\ifPosterUseFooterBar
+  \PosterFooterBar
+\else
+  {\color{PosterMuted}\large
+  \PosterEvent\hfill Förderhinweis / Projekt / DOI / Kurzreferenz
+  }\par
+\fi

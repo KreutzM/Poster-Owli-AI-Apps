@@ -1,0 +1,65 @@
+% -----------------------------------------------------------------------------
+% Poster configuration
+% -----------------------------------------------------------------------------
+% Edit this file first. Keep content text in src/content/*.tex and layout/style
+% in src/poster-theme.tex.
+
+% Language: uncomment one of the following lines.
+\selectlanguage{ngerman}
+% \selectlanguage{english}
+
+% Metadata and header text.
+\newcommand{\PosterTitle}{Titel des DIN-A0-Posters}
+\newcommand{\PosterSubtitle}{Kurzer Untertitel oder zentrale Forschungsfrage}
+\newcommand{\PosterAuthors}{Vorname Nachname\textsuperscript{1}, Vorname Nachname\textsuperscript{2}}
+\newcommand{\PosterAffiliations}{\textsuperscript{1}Institution A \quad \textsuperscript{2}Institution B}
+\newcommand{\PosterEvent}{Konferenz / Messe / Veranstaltung}
+\newcommand{\PosterContactName}{Kontaktperson}
+\newcommand{\PosterContactEmail}{kontakt@example.org}
+\newcommand{\PosterContactWeb}{https://example.org}
+
+% Header logos.
+% Default: THM on the left and ITI on the right.
+% Set \PosterUseBlizLogotrue to use the BLiZ logo on the right instead of ITI.
+% Missing files are rendered as clean placeholders so the template still builds.
+\newcommand{\PosterLogoLeft}{assets/logos/logo_thm.pdf}
+\newcommand{\PosterLogoRightIti}{assets/logos/logo_iti.png}
+\newcommand{\PosterLogoRightBliz}{assets/logos/logo_bliz.pdf}
+\newif\ifPosterUseBlizLogo
+\PosterUseBlizLogofalse
+
+% Optional QR-code file. Put the file into assets/qr/ and replace the path.
+\newcommand{\PosterQrCode}{assets/qr/qr-code.png}
+
+% Design colors: adapt to institutional branding.
+\definecolor{PosterPrimary}{RGB}{0,100,120}
+\definecolor{PosterAccent}{RGB}{245,148,30}
+\definecolor{PosterSoft}{RGB}{238,247,249}
+\definecolor{PosterInk}{RGB}{30,38,44}
+\definecolor{PosterMuted}{RGB}{88,96,104}
+\definecolor{PosterBackground}{RGB}{255,255,255}
+\definecolor{PosterFooterBackground}{RGB}{21,55,66}
+\definecolor{PosterFooterText}{RGB}{255,255,255}
+\definecolor{PosterFooterMuted}{RGB}{220,232,235}
+
+% Layout constants. A0 portrait gives approx. 841 x 1189 mm.
+\newlength{\PosterOuterMargin}
+\setlength{\PosterOuterMargin}{30mm}
+\newlength{\PosterBlockGap}
+\setlength{\PosterBlockGap}{12mm}
+\newlength{\PosterBoxPadding}
+\setlength{\PosterBoxPadding}{8mm}
+\newlength{\PosterFooterHeight}
+\setlength{\PosterFooterHeight}{50mm}
+
+% Default full-width footer bar. It is useful for QR code, contact, project,
+% funding, DOI, short URL, or license information. It is enabled by default;
+% switch to \PosterUseFooterBarfalse only if you need a compact text-only footer.
+\newif\ifPosterUseFooterBar
+\PosterUseFooterBartrue
+\newcommand{\PosterFooterLeftTitle}{Material}
+\newcommand{\PosterFooterLeftText}{QR-Code, Kurzlink, Repository oder Zusatzmaterial}
+\newcommand{\PosterFooterMiddleTitle}{Kontakt}
+\newcommand{\PosterFooterMiddleText}{\PosterContactName\\\texttt{\PosterContactEmail}\\\href{\PosterContactWeb}{\PosterContactWeb}}
+\newcommand{\PosterFooterRightTitle}{Projekt / Hinweis}
+\newcommand{\PosterFooterRightText}{\PosterEvent\\Förderhinweis / DOI / Lizenz}
