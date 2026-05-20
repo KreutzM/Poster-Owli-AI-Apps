@@ -1,11 +1,11 @@
-.PHONY: pdf check preview visual-check clean distclean check-tools check-structure final-check
+.PHONY: pdf check preview visual-check clean distclean check-tools check-structure prepare-assets final-check
 
 MAIN := main
 LATEXMK := latexmk
 LATEXMK_FLAGS := -pdf -interaction=nonstopmode -halt-on-error
 PYTHON ?= $(shell command -v python3 2>/dev/null || command -v python 2>/dev/null || command -v py 2>/dev/null || echo python)
 
-pdf:
+pdf: prepare-assets
 	$(LATEXMK) $(LATEXMK_FLAGS) $(MAIN).tex
 
 check: check-tools check-structure pdf
@@ -16,6 +16,9 @@ check-tools:
 
 check-structure:
 	$(PYTHON) scripts/check_structure.py
+
+prepare-assets:
+	$(PYTHON) scripts/prepare_assets.py
 
 final-check: check
 	$(PYTHON) scripts/check_placeholders.py
