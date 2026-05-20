@@ -43,6 +43,31 @@
       bottom=0mm
     }
   },
+  appcard/.style={
+    enhanced,
+    colback=white,
+    colframe=PosterPrimary!86!black,
+    boxrule=2.1pt,
+    arc=5mm,
+    left=7mm,
+    right=7mm,
+    top=7mm,
+    bottom=7mm,
+    before skip=0pt,
+    after skip=0pt,
+    fonttitle=\LARGE\bfseries,
+    coltitle=PosterPrimary,
+    attach boxed title to top left={xshift=3mm,yshift=-3mm},
+    boxed title style={
+      colback=white,
+      colframe=white,
+      boxrule=0pt,
+      left=1mm,
+      right=2mm,
+      top=0mm,
+      bottom=0mm
+    }
+  },
   highlightbox/.style={
     enhanced,
     colback=PosterSoft,
@@ -73,6 +98,7 @@
 }
 
 \newtcolorbox{PosterBlock}[2][]{posterbox,title={#2},#1}
+\newtcolorbox{PosterAppCard}[2][]{appcard,title={#2},#1}
 \newtcolorbox{PosterHighlight}[1][]{highlightbox,#1}
 
 \newcommand{\PosterLead}[1]{%
@@ -118,6 +144,16 @@
     \IfFileExists{#2}{\includegraphics[#1]{#2}}{\PosterFigurePlaceholder{#4}}%
     \caption{#3}
   \end{figure}%
+}
+
+\newcommand{\PosterAppImage}[3][height=132mm]{%
+  \begin{center}
+    \IfFileExists{#2}{\includegraphics[#1,keepaspectratio]{#2}}{\PosterFigurePlaceholder[132mm]{#3}}%
+  \end{center}
+}
+
+\newcommand{\PosterAppLogo}[2][height=18mm]{%
+  \IfFileExists{#2}{\includegraphics[#1,keepaspectratio]{#2}}{}%
 }
 
 \newcommand{\PosterQrPlaceholder}{%
@@ -185,6 +221,22 @@
   \tikz[baseline=(X.base)]\node[fill=PosterAccent!16, draw=PosterAccent!80!black,
     rounded corners=2mm, inner xsep=3mm, inner ysep=1.4mm, font=\large\bfseries,
     text=PosterInk] (X) {#1};%
+}
+
+\newcommand{\PosterStatus}[1]{%
+  \tikz[baseline=(X.base)]\node[fill=PosterPrimary!10, draw=PosterPrimary!80!black,
+    rounded corners=2mm, inner xsep=3mm, inner ysep=1.2mm, font=\large\bfseries,
+    text=PosterPrimary!85!black] (X) {#1};%
+}
+
+\newcommand{\PosterAppBullets}[4]{%
+  \begin{itemize}
+    \setlength\itemsep{2.2mm}
+    \item #1
+    \item #2
+    \item #3
+    \item #4
+  \end{itemize}%
 }
 
 \newcommand{\PosterRule}{\par\vspace{3mm}{\color{PosterPrimary}\rule{\linewidth}{1.5pt}}\vspace{3mm}\par}
