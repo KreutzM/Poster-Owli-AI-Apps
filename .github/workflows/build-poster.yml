@@ -3,6 +3,11 @@ name: Build poster
 on:
   push:
   pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: build-poster-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -17,10 +22,12 @@ jobs:
         run: make check
       - name: Render preview
         run: make preview
-      - name: Upload poster artifacts
+      - name: Upload poster artifacts for manual runs only
+        if: github.event_name == 'workflow_dispatch'
         uses: actions/upload-artifact@v4
         with:
           name: poster-build
           path: |
             build/main.pdf
             build/poster-preview.png
+          retention-days: 1
